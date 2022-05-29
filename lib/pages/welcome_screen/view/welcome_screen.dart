@@ -1,10 +1,11 @@
 import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/pages/welcome_screen/phone_input_screen.dart/view/phone_input_screen.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:chat_app/shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../phone_input_screen/view/phone_input_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
