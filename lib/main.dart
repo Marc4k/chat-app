@@ -1,5 +1,6 @@
 import 'package:chat_app/constants/screen_adaption_config.dart';
 import 'package:chat_app/constants/styles.dart';
+import 'package:chat_app/pages/welcome_screen/view/welcome_screen.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:flutter/material.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
@@ -25,12 +26,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [],
-        ),
-      ),
-    );
+    return WelcomeScreen();
   }
 }

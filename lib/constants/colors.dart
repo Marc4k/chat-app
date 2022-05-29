@@ -6,4 +6,6 @@ class CustomColors {
   static Color brandDarkMode = const Color(0xFF375FFF);
   static Color brandLight = const Color(0xFF879FFF);
   static Color brandBg = const Color(0xFFD2D5F9);
+
+  static Color textColor = const Color(0xFF0F1828);
 }
