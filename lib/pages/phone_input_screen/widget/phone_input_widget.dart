@@ -7,6 +7,9 @@ class PhoneNumberInputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InternationalPhoneNumberInput(
+      inputBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4)),
+      ),
       onInputChanged: (value) {},
     );
   }

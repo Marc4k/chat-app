@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/styles.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
@@ -13,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorChance().getBackgroundColor(),
       body: Padding(
         padding: EdgeInsets.fromLTRB(24 * sW(context), 0, 24 * sW(context), 0),
         child: Column(

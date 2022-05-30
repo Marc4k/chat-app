@@ -5,6 +5,7 @@ import 'package:chat_app/shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/screen_adaption.dart';
+import '../../../constants/colors.dart';
 import '../../phone_verification_screen/view/phone_verification_screen.dart';
 import '../widget/phone_input_widget.dart';
 
@@ -14,11 +15,12 @@ class PhoneInputScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChance().getBackgroundColor(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: ColorChance().getTextColor(),
         ),
       ),
       body: Center(

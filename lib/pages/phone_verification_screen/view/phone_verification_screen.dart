@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants/colors.dart';
 import '../../../constants/styles.dart';
 import '../../../shared/custom_text_widget.dart';
 import '../../../shared/screen_adaption.dart';
@@ -13,11 +14,12 @@ class PhoneVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorChance().getBackgroundColor(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: ColorChance().getTextColor(),
         ),
       ),
       body: Center(
