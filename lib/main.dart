@@ -1,8 +1,12 @@
 import 'package:chat_app/pages/create_profil_screen/view/create_profil_screen.dart';
 import 'package:chat_app/pages/welcome_screen/view/welcome_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 

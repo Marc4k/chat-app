@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777620102421",
+    "project_id": "chatapp-fa0c4",
+    "storage_bucket": "chatapp-fa0c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777620102421:android:e12791160be56c02721d1c",
+        "android_client_info": {
+          "package_name": "com.marcplace.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777620102421-madt51cjs833jjl7ggpdh74a0jgplrks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADql0TUPskDHY8XtDg3NWISbgiO91dDH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777620102421-madt51cjs833jjl7ggpdh74a0jgplrks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
