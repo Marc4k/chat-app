@@ -1,12 +1,11 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/styles.dart';
+import 'package:chat_app/pages/sign_up_screen/view/sign_up_screen.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:chat_app/shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../../phone_input_screen/view/phone_input_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -32,12 +31,41 @@ class WelcomeScreen extends StatelessWidget {
             CustomTextWidget(text: "Terms & Privacy Policy", style: body1Style),
             const SizedBoxHeightWidget(height: 18),
             ButtonWidget(
-                callback: () {
+                callback: () async {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                    return PhoneInputScreen();
+                    return SignUpScreen();
                   }));
+
+                  //PhoneAuthRepositoryImpl()
+                  //   .logUserInWithPhone("+43 650 2719052");
+
+                  /*  FirebaseAuth auth = FirebaseAuth.instance;
+                  final userData = await auth.signInWithEmailAndPassword(
+                      email: "marc@gmx.at", password: "Maxwell187");
+
+                  if (userData != null) {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return HomeScreen();
+                    }));
+                  }*/
                 },
-                text: "Start Messaging"),
+                text: "Sign Up"),
+            SizedBoxHeightWidget(height: 8),
+            GestureDetector(
+              onTap: () {},
+              child: RichText(
+                text: TextSpan(children: <TextSpan>[
+                  TextSpan(text: "You’re already a member?", style: body1Style),
+                  TextSpan(
+                      text: " Login",
+                      style: TextStyle(
+                          color: CustomColors.brandDefault,
+                          fontWeight: FontWeight.w700,
+                          fontSize: body1Style.fontSize,
+                          fontFamily: body1Style.fontFamily)),
+                ]),
+              ),
+            ),
           ],
         ),
       ),
