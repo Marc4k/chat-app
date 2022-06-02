@@ -5,6 +5,7 @@ import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:chat_app/shared/sized_box_height_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -52,7 +53,10 @@ class WelcomeScreen extends StatelessWidget {
                 text: "Sign Up"),
             SizedBoxHeightWidget(height: 8),
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                final FirebaseAuth _auth = FirebaseAuth.instance;
+                await _auth.signOut();
+              },
               child: RichText(
                 text: TextSpan(children: <TextSpan>[
                   TextSpan(text: "You’re already a member?", style: body1Style),

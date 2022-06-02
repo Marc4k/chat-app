@@ -56,3 +56,10 @@ TextStyle metadata3Style = TextStyle(
   fontFamily: "Mulish",
   color: CustomColors.brandDarkColor,
 );
+
+TextStyle errorStyle = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  fontFamily: "Mulish",
+  color: Colors.red,
+);
