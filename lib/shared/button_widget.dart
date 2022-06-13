@@ -3,6 +3,7 @@ import 'package:chat_app/constants/styles.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({Key? key, required this.callback, required this.text})
@@ -17,7 +18,7 @@ class ButtonWidget extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           shape: StadiumBorder(),
           primary: CustomColors.brandDefault,
-          fixedSize: Size(double.maxFinite, 48 * sH(context))),
+          fixedSize: Size(double.maxFinite, 48.h)),
     );
   }
 }
