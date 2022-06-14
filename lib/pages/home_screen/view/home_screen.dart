@@ -1,8 +1,8 @@
 import 'package:chat_app/constants/colors.dart';
 import 'package:chat_app/constants/screen_adaption_config.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pixel_perfect/pixel_perfect.dart';
 
 import '../pages/chat_page.dart';
 import '../pages/contact_screen.dart';
@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         showUnselectedLabels: false,
         currentIndex: indexNavigation,
         onTap: (index) {
+          // await FirebaseAuth.instance.signOut();
           setState(() {
             indexNavigation = index;
           });

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chat_app/domain/create_user/create_user_impl.dart';
 import 'package:chat_app/pages/create_profil_screen/widget/input_field_profil_widget.dart';
 import 'package:chat_app/pages/create_profil_screen/widget/select_picture_widget.dart';
+import 'package:chat_app/pages/home_screen/view/home_screen.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,12 @@ class _CreateProfilScreenState extends State<CreateProfilScreen> {
                       final userData = await CreateUserImpl()
                           .createUser(name.text, imageTemorary);
 
-                      userData.fold((l) {}, (r) {
+                      userData.fold((l) {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (_) => HomeScreen()),
+                            (route) => false);
+                      }, (r) {
                         setState(() {
                           error = r.errorMessage!;
                         });

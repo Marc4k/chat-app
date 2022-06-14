@@ -5,6 +5,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class UserAuthImpl extends UserAuthRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  @override
+  Future<void> signOutUser() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   @override
   Future<Either<UserCredential, Failure>> signInUser(

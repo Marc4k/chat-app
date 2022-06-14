@@ -1,20 +1,15 @@
 import 'package:chat_app/constants/styles.dart';
 import 'package:chat_app/domain/user_auth/user_auth_impl.dart';
-import 'package:chat_app/error/failures.dart';
 import 'package:chat_app/pages/create_profil_screen/view/create_profil_screen.dart';
+import 'package:chat_app/pages/sign_up_in_screen/view/sign_in_screen.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_input_field.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
-import 'package:chat_app/shared/sized_box_height_widget.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../shared/screen_adaption.dart';
 import '../../../constants/colors.dart';
-import '../../phone_verification_screen/view/phone_verification_screen.dart';
-import '../widget/phone_input_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -28,6 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController password1 = TextEditingController();
   TextEditingController password2 = TextEditingController();
   bool isLoading = false;
+  bool isObscure = false;
   String error = "";
 
   @override
@@ -54,23 +50,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     hintText: "Enter your E-Mail", controller: email),
                 SizedBox(height: 20.h),
                 CustomPasswordFieldWidget(
-                    hintText: "Enter your Password", controller: password1),
+                    isObscure: isObscure,
+                    onEyeTap: () {
+                      setState(() => isObscure = !isObscure);
+                    },
+                    hintText: "Enter your Password",
+                    controller: password1),
                 SizedBox(height: 20.h),
                 CustomPasswordFieldWidget(
+                    isObscure: isObscure,
+                    onEyeTap: () {
+                      setState(() => isObscure = !isObscure);
+                    },
                     hintText: "Enter your Password again",
                     controller: password2),
                 SizedBox(height: 10.h),
                 CustomTextWidget(text: error, style: errorStyle),
-                SizedBox(height: 98.h),
+                SizedBox(height: 50.h),
                 ButtonWidget(
                     isLoading: isLoading,
                     callback: () async {
                       if (password1.text.length > 6 &&
                           password2.text.length > 6 &&
                           EmailValidator.validate(email.text) == true) {
-                        setState(() {
-                          isLoading = true;
-                        });
+                        setState(() => isLoading = true);
                         dynamic userData = await UserAuthImpl()
                             .signUpUser(email.text, password1.text);
 
@@ -89,7 +92,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                     },
                     text: "Continue"),
-                SizedBox(height: 150.h),
+                SizedBox(height: 5.h),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (_) => SignInScreen()),
+                          (route) => false);
+                    },
+                    child: RichText(
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                            text: "You have a account?", style: metadata2Style),
+                        TextSpan(text: " SignIn", style: metadata1Style),
+                      ]),
+                    ))
               ],
             ),
           ),

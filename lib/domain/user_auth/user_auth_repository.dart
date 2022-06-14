@@ -7,4 +7,6 @@ abstract class UserAuthRepository {
       String email, String password);
   Future<Either<UserCredential, Failure>> signInUser(
       String email, String password);
+
+  Future<void> signOutUser();
 }
