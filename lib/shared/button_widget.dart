@@ -4,17 +4,29 @@ import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/screen_adaption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({Key? key, required this.callback, required this.text})
+  const ButtonWidget(
+      {Key? key,
+      required this.callback,
+      required this.text,
+      required this.isLoading})
       : super(key: key);
   final VoidCallback callback;
   final String text;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: callback,
-      child: CustomTextWidget(text: text, style: subheading2Style),
+      child: isLoading
+          ? SpinKitWave(
+              color: CustomColors.textColor,
+              size: 25.r,
+              type: SpinKitWaveType.start,
+            )
+          : CustomTextWidget(text: text, style: subheading2Style),
       style: ElevatedButton.styleFrom(
           shape: StadiumBorder(),
           primary: CustomColors.brandDefault,

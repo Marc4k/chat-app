@@ -1,10 +1,12 @@
 import 'package:chat_app/constants/styles.dart';
 import 'package:chat_app/domain/user_auth/user_auth_impl.dart';
 import 'package:chat_app/error/failures.dart';
+import 'package:chat_app/pages/create_profil_screen/view/create_profil_screen.dart';
 import 'package:chat_app/shared/button_widget.dart';
 import 'package:chat_app/shared/custom_input_field.dart';
 import 'package:chat_app/shared/custom_text_widget.dart';
 import 'package:chat_app/shared/sized_box_height_widget.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password1 = TextEditingController();
   TextEditingController password2 = TextEditingController();
-
+  bool isLoading = false;
   String error = "";
 
   @override
@@ -61,14 +63,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomTextWidget(text: error, style: errorStyle),
                 SizedBox(height: 98.h),
                 ButtonWidget(
+                    isLoading: isLoading,
                     callback: () async {
-                      dynamic test = await UserAuthImpl()
-                          .signUpUser(email.text, password1.text);
+                      if (password1.text.length > 6 &&
+                          password2.text.length > 6 &&
+                          EmailValidator.validate(email.text) == true) {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        dynamic userData = await UserAuthImpl()
+                            .signUpUser(email.text, password1.text);
 
-                      /*Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) {
-                        return PhoneVerificationScreen();
-                      }));*/
+                        userData.fold((userData) {
+                          isLoading = false;
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) {
+                            return CreateProfilScreen();
+                          }));
+                        }, (failure) {
+                          setState(() {
+                            isLoading = false;
+                            error = failure.errorMessage;
+                          });
+                        });
+                      }
                     },
                     text: "Continue"),
                 SizedBox(height: 150.h),

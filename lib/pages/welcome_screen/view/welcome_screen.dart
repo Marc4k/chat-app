@@ -32,6 +32,7 @@ class WelcomeScreen extends StatelessWidget {
             CustomTextWidget(text: "Terms & Privacy Policy", style: body1Style),
             SizedBox(height: 18.h),
             ButtonWidget(
+                isLoading: false,
                 callback: () async {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                     return SignUpScreen();
