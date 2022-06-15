@@ -1,6 +1,6 @@
-import 'package:chat_app/domain/user_auth/user_auth_repository.dart';
+import 'user_auth_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:chat_app/error/failures.dart';
+import '../../error/failures.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserAuthImpl extends UserAuthRepository {

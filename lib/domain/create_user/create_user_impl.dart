@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:chat_app/domain/create_user/create_user_repository.dart';
-import 'package:chat_app/error/failures.dart';
+import 'create_user_repository.dart';
+import '../../error/failures.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';

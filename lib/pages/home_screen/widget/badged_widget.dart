@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart';
-import 'package:chat_app/constants/colors.dart';
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/shared/custom_text_widget.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/styles.dart';
+import '../../../shared/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class BadgedWidget extends StatelessWidget {

@@ -1,10 +1,10 @@
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/domain/user_auth/user_auth_impl.dart';
-import 'package:chat_app/pages/create_profil_screen/view/create_profil_screen.dart';
-import 'package:chat_app/pages/sign_up_in_screen/view/sign_in_screen.dart';
-import 'package:chat_app/shared/button_widget.dart';
-import 'package:chat_app/shared/custom_input_field.dart';
-import 'package:chat_app/shared/custom_text_widget.dart';
+import '../../../constants/styles.dart';
+import '../../../domain/user_auth/user_auth_impl.dart';
+import '../../create_profil_screen/view/create_profil_screen.dart';
+import 'sign_in_screen.dart';
+import '../../../shared/button_widget.dart';
+import '../../../shared/custom_input_field.dart';
+import '../../../shared/custom_text_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

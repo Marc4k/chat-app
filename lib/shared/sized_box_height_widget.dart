@@ -1,4 +1,4 @@
-import 'package:chat_app/shared/screen_adaption.dart';
+import 'screen_adaption.dart';
 import 'package:flutter/material.dart';
 
 class SizedBoxHeightWidget extends StatelessWidget {

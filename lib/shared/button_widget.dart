@@ -1,7 +1,7 @@
-import 'package:chat_app/constants/colors.dart';
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/shared/custom_text_widget.dart';
-import 'package:chat_app/shared/screen_adaption.dart';
+import '../constants/colors.dart';
+import '../constants/styles.dart';
+import 'custom_text_widget.dart';
+import 'screen_adaption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

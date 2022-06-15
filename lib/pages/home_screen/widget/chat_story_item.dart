@@ -1,6 +1,6 @@
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/shared/custom_text_widget.dart';
-import 'package:chat_app/shared/sized_box_height_widget.dart';
+import '../../../constants/styles.dart';
+import '../../../shared/custom_text_widget.dart';
+import '../../../shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/screen_adaption.dart';

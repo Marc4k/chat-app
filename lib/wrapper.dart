@@ -1,6 +1,6 @@
-import 'package:chat_app/pages/home_screen/view/home_screen.dart';
-import 'package:chat_app/pages/sign_up_in_screen/view/sign_in_screen.dart';
-import 'package:chat_app/pages/sign_up_in_screen/view/sign_up_screen.dart';
+import 'pages/home_screen/view/home_screen.dart';
+import 'pages/sign_up_in_screen/view/sign_in_screen.dart';
+import 'pages/sign_up_in_screen/view/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

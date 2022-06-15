@@ -1,5 +1,5 @@
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/shared/screen_adaption.dart';
+import '../constants/styles.dart';
+import 'screen_adaption.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextWidget extends StatelessWidget {

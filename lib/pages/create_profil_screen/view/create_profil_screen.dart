@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:chat_app/domain/create_user/create_user_impl.dart';
-import 'package:chat_app/pages/create_profil_screen/widget/input_field_profil_widget.dart';
-import 'package:chat_app/pages/create_profil_screen/widget/select_picture_widget.dart';
-import 'package:chat_app/pages/home_screen/view/home_screen.dart';
-import 'package:chat_app/shared/button_widget.dart';
-import 'package:chat_app/shared/sized_box_height_widget.dart';
+import '../../../domain/create_user/create_user_impl.dart';
+import '../widget/input_field_profil_widget.dart';
+import '../widget/select_picture_widget.dart';
+import '../../home_screen/view/home_screen.dart';
+import '../../../shared/button_widget.dart';
+import '../../../shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:image_picker/image_picker.dart';

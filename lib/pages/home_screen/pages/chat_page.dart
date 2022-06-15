@@ -1,8 +1,8 @@
-import 'package:chat_app/pages/home_screen/widget/chat_item.dart';
-import 'package:chat_app/pages/home_screen/widget/chat_story_add_item.dart';
-import 'package:chat_app/pages/home_screen/widget/chat_story_item.dart';
-import 'package:chat_app/pages/home_screen/widget/search_bar.dart';
-import 'package:chat_app/shared/screen_adaption.dart';
+import '../widget/chat_item.dart';
+import '../widget/chat_story_add_item.dart';
+import '../widget/chat_story_item.dart';
+import '../widget/search_bar.dart';
+import '../../../shared/screen_adaption.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';

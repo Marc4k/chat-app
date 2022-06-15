@@ -1,9 +1,9 @@
-import 'package:chat_app/constants/colors.dart';
-import 'package:chat_app/constants/styles.dart';
-import 'package:chat_app/shared/button_widget.dart';
-import 'package:chat_app/shared/custom_text_widget.dart';
-import 'package:chat_app/shared/screen_adaption.dart';
-import 'package:chat_app/shared/sized_box_height_widget.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/styles.dart';
+import '../../../shared/button_widget.dart';
+import '../../../shared/custom_text_widget.dart';
+import '../../../shared/screen_adaption.dart';
+import '../../../shared/sized_box_height_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
