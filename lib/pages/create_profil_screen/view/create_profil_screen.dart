@@ -55,7 +55,7 @@ class _CreateProfilScreenState extends State<CreateProfilScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.black,
         ),
       ),
       body: Center(

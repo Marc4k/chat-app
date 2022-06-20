@@ -1,3 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'pages/home_screen/view/home_screen.dart';
 import 'pages/sign_up_in_screen/view/sign_in_screen.dart';
 import 'pages/sign_up_in_screen/view/sign_up_screen.dart';
@@ -20,12 +22,3 @@ class Wrapper extends StatelessWidget {
     }
   }
 }
-
-/*
-      return MultiBlocProvider(providers: [
-        BlocProvider<GetBabyDataCubit>(
-            create: (BuildContext context) =>
-                GetBabyDataCubit()..getBabyData()),
-
-        //GetEasySelectDataCubit
-      ], child: HomeScreen());*/

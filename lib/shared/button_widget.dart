@@ -1,10 +1,10 @@
-import '../constants/colors.dart';
-import '../constants/styles.dart';
-import 'custom_text_widget.dart';
-import 'screen_adaption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../constants/colors.dart';
+import '../constants/styles.dart';
+import 'custom_text_widget.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget(

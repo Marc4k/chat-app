@@ -1,9 +1,8 @@
-import '../../../constants/styles.dart';
-import '../../../shared/custom_text_widget.dart';
-import '../../../shared/sized_box_height_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../constants/styles.dart';
 import '../../../shared/screen_adaption.dart';
+import '../../../shared/sized_box_height_widget.dart';
 
 class ChatStoryItem extends StatelessWidget {
   const ChatStoryItem({Key? key, required this.imageLink, required this.name})

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import '../../../shared/screen_adaption.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,3 +1,9 @@
+import 'dart:io';
+
+import '../../../domain/contacts/contacts_impl.dart';
+import '../../../domain/create_user/create_user_impl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../widget/chat_item.dart';
 import '../widget/chat_story_add_item.dart';
 import '../widget/chat_story_item.dart';
@@ -37,11 +43,11 @@ class _ChatPageState extends State<ChatPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.all(24.r),
         child: Column(
           children: [
             SizedBox(
-              height: 70 * sH(context),
+              height: 70.h,
               child: ListView.builder(
                 itemCount: 10,
                 scrollDirection: Axis.horizontal,
@@ -57,11 +63,13 @@ class _ChatPageState extends State<ChatPage> {
                 },
               ),
             ),
-            SizedBoxHeightWidget(height: 16),
+            SizedBox(height: 16.h),
             Divider(),
-            SizedBoxHeightWidget(height: 16),
-            SearchBar(),
-            SizedBoxHeightWidget(height: 20),
+            SizedBox(height: 16.h),
+            SearchBar(
+              onTap: () {},
+            ),
+            SizedBox(height: 20.h),
             Flexible(
               child: ListView.builder(
                 itemCount: 5,

@@ -37,9 +37,17 @@ class CreateUserImpl extends CreateUserRepository {
         pictureUrl = "NoPictureNoPicture";
       }
 
+      List<String> caseSearchList = [];
+      String temp = "";
+      for (int i = 0; i < userName.length; i++) {
+        temp = temp + userName[i].toLowerCase();
+        caseSearchList.add(temp);
+      }
+
       await userData.doc(uid).set({
-        "userName": userName,
+        "userName": userName.toLowerCase(),
         "imgPath": pictureUrl,
+        "caseSearch": caseSearchList,
       });
 
       return left("");
@@ -52,15 +60,16 @@ class CreateUserImpl extends CreateUserRepository {
 Future<bool> checkUserName(String userName) async {
   bool isSame = false;
 
-  final CollectionReference userData =
-      FirebaseFirestore.instance.collection('UserData/');
-
-  await userData.get().then((snapshot) {
+  final data = await FirebaseFirestore.instance
+      .collection("UserData")
+      .where("userName", isEqualTo: userName)
+      .get()
+      .then((snapshot) {
     snapshot.docs.forEach((element) {
-      //Object? data = element.data();
-      Map<String, dynamic> data = element.data()! as Map<String, dynamic>;
-
-      if (data["userName"] == userName) {
+      Map<String, dynamic> data = element.data() as Map<String, dynamic>;
+      if (data.isEmpty) {
+        isSame = false;
+      } else {
         isSame = true;
       }
     });

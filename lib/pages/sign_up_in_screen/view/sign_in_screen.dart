@@ -1,15 +1,15 @@
-import '../../../domain/user_auth/user_auth_impl.dart';
-import '../../home_screen/view/home_screen.dart';
-import 'sign_up_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/styles.dart';
+import '../../../domain/user_auth/user_auth_impl.dart';
 import '../../../shared/button_widget.dart';
 import '../../../shared/custom_input_field.dart';
 import '../../../shared/custom_text_widget.dart';
+import '../../home_screen/view/home_screen.dart';
+import 'sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -68,10 +68,10 @@ class _SignInScreenState extends State<SignInScreen> {
                         email.clear();
                         password.clear();
                         userData.fold((userData) {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) {
-                            return HomeScreen();
-                          }));
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (_) => HomeScreen()),
+                              (route) => false);
 
                           isLoading = false;
                         }, (failure) {
