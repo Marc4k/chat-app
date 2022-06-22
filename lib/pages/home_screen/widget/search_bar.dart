@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key, required this.onTap}) : super(key: key);
-  final VoidCallback onTap;
+  const SearchBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap: onTap,
       decoration: const InputDecoration(
         filled: true,
         fillColor: Color(0xFFF7F7FC),

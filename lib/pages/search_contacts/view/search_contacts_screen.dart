@@ -1,8 +1,10 @@
+import 'package:chat_app/cubits/get_contacts_cubit.dart';
 import 'package:chat_app/domain/contacts/contacts_impl.dart';
 import 'package:chat_app/domain/contacts/models/contact_model.dart';
 import 'package:chat_app/pages/home_screen/widget/search_bar.dart';
 import 'package:chat_app/pages/search_contacts/widget/search_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchContactsScreen extends StatefulWidget {
   const SearchContactsScreen({Key? key}) : super(key: key);
@@ -23,6 +25,7 @@ class _SearchContactsScreenState extends State<SearchContactsScreen> {
           IconButton(
               onPressed: () {
                 Navigator.pop(context);
+                searchItems = [];
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -46,7 +49,10 @@ class _SearchContactsScreenState extends State<SearchContactsScreen> {
           return SearchItemWidget(
               img: searchItems[index].pictureUrl,
               username: searchItems[index].username,
-              onAdd: () {});
+              onAdd: () async {
+                await ContactsImpl().addContact(searchItems[index].userId);
+                Navigator.pop(context);
+              });
         },
       ),
     );

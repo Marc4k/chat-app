@@ -66,9 +66,7 @@ class _ChatPageState extends State<ChatPage> {
             SizedBox(height: 16.h),
             Divider(),
             SizedBox(height: 16.h),
-            SearchBar(
-              onTap: () {},
-            ),
+            SearchBar(),
             SizedBox(height: 20.h),
             Flexible(
               child: ListView.builder(

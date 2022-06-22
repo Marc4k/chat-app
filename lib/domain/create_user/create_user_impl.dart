@@ -48,6 +48,7 @@ class CreateUserImpl extends CreateUserRepository {
         "userName": userName.toLowerCase(),
         "imgPath": pictureUrl,
         "caseSearch": caseSearchList,
+        "uID": uid,
       });
 
       return left("");

@@ -1,3 +1,4 @@
+import 'package:chat_app/cubits/get_contacts_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pages/home_screen/view/home_screen.dart';
@@ -16,7 +17,13 @@ class Wrapper extends StatelessWidget {
     final User? user = auth.currentUser;
 
     if (user != null) {
-      return HomeScreen();
+      return MultiBlocProvider(providers: [
+        BlocProvider<GetContactCubit>(
+            create: (BuildContext context) =>
+                GetContactCubit()..getAllContacts()),
+
+        //GetEasySelectDataCubit
+      ], child: HomeScreen());
     } else {
       return SignInScreen();
     }
