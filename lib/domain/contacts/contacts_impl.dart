@@ -11,6 +11,26 @@ class ContactsImpl extends Contacts {
   @override
   Future<List<ContactModel>> searchInContacts(String serachTerm) async {
     List<ContactModel> items = [];
+    List contactsAlreadyAdded = [];
+    List<int> indexToRemove = [];
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    final uid = user!.uid;
+
+    await FirebaseFirestore.instance
+        .collection("UserData")
+        .where("uID", isEqualTo: uid)
+        .get()
+        .then((snapshot) {
+      snapshot.docs.forEach((element) async {
+        Map<String, dynamic> data = element.data() as Map<String, dynamic>;
+        List contact = [];
+
+        if (data["contacts"] != null) {
+          contactsAlreadyAdded = data["contacts"];
+        }
+      });
+    });
 
     await FirebaseFirestore.instance
         .collection("UserData")
@@ -20,13 +40,36 @@ class ContactsImpl extends Contacts {
       snapshot.docs.forEach((element) {
         Map<String, dynamic> data = element.data() as Map<String, dynamic>;
 
-        items.add(ContactModel(
-            username: data["userName"],
-            pictureUrl: data["imgPath"],
-            userId: element.id));
+        /* for (var i = 0; i < contactsAlreadyAdded.length; i++) {
+          if (contactsAlreadyAdded[i] != data["uID"] && data["uID"] != uid) {
+            items.add(ContactModel(
+                username: data["userName"],
+                pictureUrl: data["imgPath"],
+                userId: element.id));
+          }
+        }*/
+        if (data["uID"] != uid) {
+          items.add(ContactModel(
+              username: data["userName"],
+              pictureUrl: data["imgPath"],
+              userId: element.id));
+        }
       });
     });
 
+    for (var i = 0; i < items.length; i++) {
+      for (var g = 0; g < contactsAlreadyAdded.length; g++) {
+        if (items[i].userId == contactsAlreadyAdded[g]) {
+          print("Samee");
+          indexToRemove.add(i);
+        }
+      }
+    }
+    for (var h = 0; h < indexToRemove.length; h++) {
+      items.removeAt(indexToRemove[h]);
+    }
+
+    contactsAlreadyAdded.clear();
     return items;
   }
 

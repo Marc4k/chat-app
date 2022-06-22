@@ -25,7 +25,7 @@ class _SearchContactsScreenState extends State<SearchContactsScreen> {
           IconButton(
               onPressed: () {
                 Navigator.pop(context);
-                searchItems = [];
+                searchItems.clear();
               },
               icon: Icon(
                 Icons.arrow_back,
@@ -51,6 +51,7 @@ class _SearchContactsScreenState extends State<SearchContactsScreen> {
               username: searchItems[index].username,
               onAdd: () async {
                 await ContactsImpl().addContact(searchItems[index].userId);
+                searchItems.clear();
                 Navigator.pop(context);
               });
         },
