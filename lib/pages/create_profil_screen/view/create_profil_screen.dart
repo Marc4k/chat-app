@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../cubits/get_contacts_cubit.dart';
 import '../../../domain/create_user/create_user_impl.dart';
 import '../widget/input_field_profil_widget.dart';
 import '../widget/select_picture_widget.dart';
@@ -85,10 +88,12 @@ class _CreateProfilScreenState extends State<CreateProfilScreen> {
                           .createUser(name.text, imageTemorary);
 
                       userData.fold((l) {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(builder: (_) => HomeScreen()),
-                            (route) => false);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MultiBlocProvider(providers: [
+                                  BlocProvider<GetContactCubit>(
+                                      create: (BuildContext context) =>
+                                          GetContactCubit()..getAllContacts())
+                                ], child: HomeScreen())));
                       }, (r) {
                         setState(() {
                           error = r.errorMessage!;

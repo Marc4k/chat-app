@@ -1,5 +1,7 @@
+import 'package:chat_app/cubits/get_contacts_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/colors.dart';
@@ -42,6 +44,30 @@ class _SignInScreenState extends State<SignInScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                ElevatedButton(
+                    onPressed: () {
+                      email.text = "nath@gmx.at";
+                      password.text = "Maxwell187";
+                    },
+                    child: Text("Nathalie")),
+                ElevatedButton(
+                    onPressed: () {
+                      email.text = "marc@gmx.at";
+                      password.text = "Maxwell187";
+                    },
+                    child: Text("Marc")),
+                ElevatedButton(
+                    onPressed: () {
+                      email.text = "marco@gmx.at";
+                      password.text = "Maxwell187";
+                    },
+                    child: Text("Marco")),
+                ElevatedButton(
+                    onPressed: () {
+                      email.text = "chef@gmx.at";
+                      password.text = "Maxwell187";
+                    },
+                    child: Text("Chef")),
                 CustomTextWidget(text: "Sign in!", style: heading2Style),
                 SizedBox(height: 48.h),
                 CustomEmailFieldWidget(
@@ -68,10 +94,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         email.clear();
                         password.clear();
                         userData.fold((userData) {
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (_) => HomeScreen()),
-                              (route) => false);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MultiBlocProvider(providers: [
+                                    BlocProvider<GetContactCubit>(
+                                        create: (BuildContext context) =>
+                                            GetContactCubit()..getAllContacts())
+                                  ], child: HomeScreen())));
 
                           isLoading = false;
                         }, (failure) {

@@ -1,5 +1,4 @@
 import 'package:chat_app/cubits/get_contacts_cubit.dart';
-import 'package:chat_app/domain/contacts/models/contact_model.dart';
 import 'package:chat_app/domain/contacts/models/contact_screen_models.dart';
 import 'package:chat_app/pages/home_screen/widget/contac_item.dart';
 import 'package:chat_app/pages/search_contacts/view/search_contacts_screen.dart';
@@ -9,10 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/colors.dart';
-import '../../../domain/contacts/contacts_impl.dart';
-import '../widget/search_bar.dart';
-
-//         context.read<HomeScreenChanceCubit>().changeToStatistics();
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -109,12 +104,16 @@ class _ContactPageState extends State<ContactPage> {
                     contactsList = contactsSort;
                   }
 
-                  return ListView.builder(
-                    itemCount: contactsList.length,
-                    itemBuilder: (context, index) {
-                      return ContactItem(data: contactsList[index]);
-                    },
-                  );
+                  if (contacts.isEmpty) {
+                    return Text("Empty");
+                  } else {
+                    return ListView.builder(
+                      itemCount: contactsList.length,
+                      itemBuilder: (context, index) {
+                        return ContactItem(data: contactsList[index]);
+                      },
+                    );
+                  }
                 },
               ),
             )
@@ -124,3 +123,13 @@ class _ContactPageState extends State<ContactPage> {
     );
   }
 }
+
+
+/*
+                  var collection =
+                      FirebaseFirestore.instance.collection('UserData');
+                  collection
+                      .doc('9FdMvQGHp5ermk2VqYEBxdbXI3A3')
+                      .update({'userName': 'marcoo'}) // <-- Updated data
+                      .then((_) => print('Success'))
+                      .catchError((error) => print('Failed: $error'));*/

@@ -1,4 +1,9 @@
+import 'dart:async';
+
+import 'package:chat_app/cubits/get_contacts_cubit.dart';
+import 'package:chat_app/domain/last_seen/offline_online_impl.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../constants/colors.dart';
 import '../pages/chat_page.dart';
@@ -14,12 +19,43 @@ class HomeScreen extends StatefulWidget {
 
 int indexNavigation = 1;
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final screens = [
     ContactPage(),
     ChatPage(),
     MorePage(),
   ];
+
+  @override
+  void initState() {
+    context.read<GetContactCubit>().getAllContacts();
+    WidgetsBinding.instance.addObserver(this);
+    OfflineOnlineImpl().setOnline();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        OfflineOnlineImpl().setOnline();
+        break;
+      case AppLifecycleState.inactive:
+        OfflineOnlineImpl().setOffline();
+        break;
+      case AppLifecycleState.paused:
+        OfflineOnlineImpl().setOffline();
+        break;
+      case AppLifecycleState.detached:
+        OfflineOnlineImpl().setOffline();
+        break;
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

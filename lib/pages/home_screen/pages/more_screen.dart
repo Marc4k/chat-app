@@ -1,3 +1,5 @@
+import 'package:chat_app/domain/last_seen/offline_online_impl.dart';
+
 import '../../sign_up_in_screen/view/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +26,9 @@ class MorePage extends StatelessWidget {
         children: [
           ElevatedButton(
               onPressed: () async {
+                OfflineOnlineImpl().setOffline();
                 await FirebaseAuth.instance.signOut();
+
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (_) => SignInScreen()),
