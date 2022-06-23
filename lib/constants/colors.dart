@@ -11,6 +11,11 @@ class CustomColors {
 
   static Color textColor = const Color(0xFF0F1828);
   static Color textColorDarkMode = const Color(0xFFF7F7FC);
+
+  //Chat
+  static Color chatBackground = const Color(0xFFF7F7FC);
+  static Color chatSender = const Color(0xFF002DE3);
+  static Color chatNotSender = Colors.white;
 }
 
 class ColorChance {

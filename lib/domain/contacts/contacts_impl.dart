@@ -199,22 +199,4 @@ String calculateLastSeen(DateTime lastOnline) {
   } else {
     return "Last seen on ${DateFormat("dd-MM-yyyy").format(lastOnline)}";
   }
-
-  // LocalDate now = LocalDate.today();
-  // LocalDate lastOnlineLocalDate = LocalDate.dateTime(lastOnline);
-  //Period diff = now.periodSince(lastOnlineLocalDate);
-
-  /* if (diff.days == 0 && diff.hours == 0 && diff.minutes != 0) {
-    return "Last seen ${diff.minutes} minutes ago";
-  }
-
-  if (diff.days == 0 && diff.hours != 0) {
-    return "Last seen ${diff.hours} hours ago";
-  }
-  //nur Monat
-  else if (diff.years > 0 && diff.years < 2) {
-    return "Last seen yesterday";
-  } else {
-    return "Last seen ${lastOnlineLocalDate}";
-  }*/
 }

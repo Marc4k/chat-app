@@ -30,6 +30,18 @@ TextStyle body2Style = TextStyle(
   color: ColorChance().getTextColor(),
 );
 
+TextStyle chatStyleSender = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Mulish",
+    color: Colors.white);
+
+TextStyle chatStyleNotSender = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Mulish",
+    color: Colors.black);
+
 TextStyle subheading2Style = TextStyle(
   fontSize: 16.sp,
   fontWeight: FontWeight.w600,

@@ -47,6 +47,7 @@ dependencies:
   flutter_profile_picture: ^2.0.0
   flutter_bloc: ^8.0.1
   intl: ^0.17.0
+  flutter_chat_bubble: ^2.0.0
 
 dev_dependencies:
   flutter_test:

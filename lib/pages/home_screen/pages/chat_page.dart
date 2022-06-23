@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:chat_app/pages/chat_screen/view/chat_screen.dart';
+
 import '../../../domain/contacts/contacts_impl.dart';
 import '../../../domain/create_user/create_user_impl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +38,11 @@ class _ChatPageState extends State<ChatPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                return ChatScreen();
+              }));
+            },
             icon: Icon(Icons.maps_ugc_outlined),
             color: ColorChance().getTextColor(),
           )
